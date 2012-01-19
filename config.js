@@ -4,12 +4,12 @@ module.exports.setup = function(app) {
     app.use(express.methodOverride());
     app.use(express.bodyParser());
     app.use(app.router);
-    app.use(express.logger());
     app.set('views', __dirname + '/views');
     app.set('view engine', 'jade');
   });
 
   app.configure('development', function() {
+    app.use(express.logger());
     app.use(express.static(__dirname + '/public'));
     app.use(express.errorHandler({dumpExceptions: true, showStack: true}));
   });

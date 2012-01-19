@@ -11,5 +11,13 @@ module.exports.statusCode = function(req, res) {
   statusCode = req.params.statusCode;
   var repository = repositoryFactory.create('statusCode');
   var statusData = repository.getById(statusCode);
-  res.render('statusCode', {title: 'HTTP Status Code - ' + statusCode, locals: {statusCode: statusCode, statusDescription: statusData}});
+  if(!statusData)
+    res.send('Invalid Status Code', {}, 404);
+  res.render('statusCode', {
+    title: 'HTTP Status Code - ' + statusCode,
+    locals: {
+      statusCode: statusCode,
+      statusName: statusData
+    }
+  });
 };
