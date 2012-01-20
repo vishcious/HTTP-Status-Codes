@@ -7,4 +7,6 @@ module.exports.setup = function(app) {
 
   app.get('/', controller.home);
   app.get('/status/:statusCode', controller.statusCode);
+  app.get('/twss', controller.twss);
+  app.post('/twss', controller.processTwss);
 };

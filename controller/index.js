@@ -1,4 +1,6 @@
+var twss = require('twss');
 var repositoryFactory = null;
+
 module.exports.setRepositoryFactory = function(factory) {
   repositoryFactory = factory;
 };
@@ -20,4 +22,17 @@ module.exports.statusCode = function(req, res) {
       statusName: statusData
     }
   });
+};
+
+module.exports.twss = function(req, res) {
+  res.render('twss', {
+    title: "That's what she said"
+  }) 
+};
+
+module.exports.processTwss = function(req, res) {
+  res.render('twss', {locals: {
+    title: "That's what she said",
+    answer: twss.is(req.param('twss'))
+  }});
 };
