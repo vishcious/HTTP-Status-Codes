@@ -1,8 +1,8 @@
 h1 HTTP Status Code List
 ul
   each key, val in list
-    - if(val.charAt(0) !== "1")
-      li
-        a(href='/status/' + val) #{val} - #{key}
+    li
+      a(href='/status/' + val) #{val} - #{key}
+      - if(val.charAt(0) !== "1")
         | --- 
         a(href='/status/' + val + '/return') return it
