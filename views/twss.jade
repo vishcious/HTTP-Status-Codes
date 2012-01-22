@@ -3,7 +3,6 @@ form(action='/twss', method='post')
   input(type='text', name='twss')
   input(type='submit', value='Say it')
 - if(typeof(answer) !== 'undefined')
-  h2 I am here
   - if(answer === true)
     h2 "That's what she said"
   - if(answer === false)
